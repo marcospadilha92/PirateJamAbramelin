@@ -506,6 +506,7 @@ GameObject:
   - component: {fileID: 1654176768}
   - component: {fileID: 1654176772}
   - component: {fileID: 1654176773}
+  - component: {fileID: 1654176774}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -584,7 +585,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1672194043283934879, guid: b59228d61e7f5fd4b9c6b611121e0a1a, type: 3}
+  m_Sprite: {fileID: -5367261866405031836, guid: 250f79da6b7b9ea4e80bee5df0b491e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -648,13 +649,13 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.6875, y: 0.90625}
+    oldSize: {x: 0.5, y: 0.3125}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.65, y: 0.85}
+  m_Size: {x: 0.47, y: 0.26}
   m_EdgeRadius: 0
 --- !u!114 &1654176773
 MonoBehaviour:
@@ -668,8 +669,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de94254c59109a144ba6b9d0ea6ca4d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1654176774}
+  moveSpeed: 300
   velocityMultiplier: 20
   maxVelocity: 50
+--- !u!95 &1654176774
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654176767}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a6a1b28c26b33434ba57b06052177aa4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1685043529
 GameObject:
   m_ObjectHideFlags: 0
