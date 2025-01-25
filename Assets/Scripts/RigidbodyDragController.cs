@@ -14,6 +14,10 @@ public class RigidbodyDragController : MonoBehaviour,
 
     private Vector2 mousePosition;
     private bool isDragging = false;
+    private bool isOnCooldown = false;
+
+    public float dragCooldown = 2f; // in seconds
+    private float cooldownTimer = 0f;
 
     // state machine events
     private void Awake()
@@ -45,19 +49,28 @@ public class RigidbodyDragController : MonoBehaviour,
     // drag events
     public void OnDrag(PointerEventData pointer)
     {
-        mousePosition = (Vector2)Camera.main.ScreenToWorldPoint(pointer.position);
+        if (!isOnCooldown){
+            mousePosition = (Vector2)Camera.main.ScreenToWorldPoint(pointer.position);
+        }
     }
 
     public void OnBeginDrag(PointerEventData pointer)
     {
-        isDragging = true;
-        animator.SetBool("IsSpin", true);
+        if (!isOnCooldown){
+            isDragging = true;
+            animator.SetBool("IsSpin", true);
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        isDragging = false;
-        animator.SetBool("IsSpin", false);
+        if (isDragging)
+        {
+            isDragging = false;
+            isOnCooldown = true;
+            cooldownTimer = dragCooldown;
+            animator.SetBool("IsSpin", false);
+        }
     }
 
     public void FixedUpdate()
@@ -79,6 +92,14 @@ public class RigidbodyDragController : MonoBehaviour,
         if (!isDragging)
         {
             Movement();
+        }
+        if (isOnCooldown)
+        {
+            cooldownTimer -= Time.deltaTime;
+            if (cooldownTimer <= 0f)
+            {
+                isOnCooldown = false;
+            }
         }
     }
 }

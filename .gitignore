@@ -2,7 +2,7 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs
+.vscode/
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
@@ -11,3 +11,4 @@
 [Ll]ogs/
 [Uu]ser[Ss]ettings/
 *.csproj
+
