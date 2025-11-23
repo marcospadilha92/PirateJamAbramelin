@@ -28,6 +28,7 @@ public class EnemyLogic : MonoBehaviour
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
+                rb.gravityScale = 0f;
                 rb.linearVelocity = direction * projectileSpeed;
             }
         }
