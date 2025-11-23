@@ -8,8 +8,12 @@ public class PlayerLogic : MonoBehaviour
 
         if (other.tag == "Enemy")
         {
-            Debug.Log("Player collided with enemy");
             other.GetComponent<EnemyLogic>().Die();
         }
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 }

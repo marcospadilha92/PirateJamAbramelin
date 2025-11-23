@@ -255,13 +255,13 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.99909174
-    height: 0.9980198
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 3.9375
+  orthographic size: 3.875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -379,6 +379,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c07f1e2d8daf8476580504e60a52bb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 7874691001848079795, guid: cfb7f522c23d6a8488c63eace6d4d093, type: 3}
+  shootInterval: 2
+  projectileSpeed: 10
 --- !u!61 &588916737
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -682,6 +685,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c07f1e2d8daf8476580504e60a52bb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 7874691001848079795, guid: cfb7f522c23d6a8488c63eace6d4d093, type: 3}
+  shootInterval: 2
+  projectileSpeed: 10
 --- !u!1 &1654176767
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,7 +705,7 @@ GameObject:
   - component: {fileID: 1654176775}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
