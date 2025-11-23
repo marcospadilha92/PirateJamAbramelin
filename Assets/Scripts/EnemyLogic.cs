@@ -29,6 +29,7 @@ public class EnemyLogic : MonoBehaviour
             if (rb != null)
             {
                 rb.gravityScale = 0f;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                 rb.linearVelocity = direction * projectileSpeed;
             }
         }
