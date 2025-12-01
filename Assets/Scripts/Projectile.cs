@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
             if (player != null)
             {
                 Rigidbody2D rb = GetComponent<Rigidbody2D>();
-                if (rb != null && rb.linearVelocity.magnitude > projectileSpeed * 0.7f)
+                if (rb != null && rb.linearVelocity.magnitude > projectileSpeed * 0.5f)
                 {
                     player.Die();
                 }
@@ -24,11 +24,7 @@ public class Projectile : MonoBehaviour
             EnemyLogic enemy = collision.collider.GetComponent<EnemyLogic>();
             if (enemy != null)
             {
-                Rigidbody2D rb = GetComponent<Rigidbody2D>();
-                if (rb != null && rb.linearVelocity.magnitude > projectileSpeed * 0.7f)
-                {
-                    enemy.Die();
-                }
+                enemy.Die();
             }
             Destroy(gameObject);
         }
