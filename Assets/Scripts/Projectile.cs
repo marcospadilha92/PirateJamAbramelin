@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    public float projectileSpeed = 10f;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Player"))
@@ -9,9 +10,27 @@ public class Projectile : MonoBehaviour
             PlayerLogic player = collision.collider.GetComponent<PlayerLogic>();
             if (player != null)
             {
-                player.Die();
+                Rigidbody2D rb = GetComponent<Rigidbody2D>();
+                if (rb != null && rb.linearVelocity.magnitude > projectileSpeed * 0.7f)
+                {
+                    player.Die();
+                }
             }
-            Destroy(gameObject); 
+            Destroy(gameObject);
+        }
+
+        if (collision.collider.CompareTag("Enemy"))
+        {
+            EnemyLogic enemy = collision.collider.GetComponent<EnemyLogic>();
+            if (enemy != null)
+            {
+                Rigidbody2D rb = GetComponent<Rigidbody2D>();
+                if (rb != null && rb.linearVelocity.magnitude > projectileSpeed * 0.7f)
+                {
+                    enemy.Die();
+                }
+            }
+            Destroy(gameObject);
         }
     }
 }

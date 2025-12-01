@@ -25,6 +25,20 @@ public class EnemyLogic : MonoBehaviour
         {
             Vector2 direction = (player.transform.position - transform.position).normalized;
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+
+            //set colliders and ignore collision with the shooting enemy
+            Collider2D[] enemyColliders = GetComponentsInChildren<Collider2D>();
+            Collider2D[] projColliders = projectile.GetComponentsInChildren<Collider2D>();
+            foreach (var eCol in enemyColliders)
+            {
+                foreach (var pCol in projColliders)
+                {
+                    if (eCol != null && pCol != null)
+                        Physics2D.IgnoreCollision(eCol, pCol);
+                }
+            }
+
+            // give motion to the projectile
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
